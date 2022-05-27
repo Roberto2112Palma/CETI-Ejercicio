@@ -26,12 +26,12 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v1 
       with:
-        username: ${{ secrets.roberto2112palma }}
-        password: ${{ secrets.c6070b36-1c42-4ddc-a15a-560547d908ca }}
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
         
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
         context: .
         push: true 
-        tags: ${{ secrets.roberto2112palma }}/maven-app:test,${{ secrets.roberto2112palma }}/maven-app:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/maven-app:test,${{ secrets.DOCKERHUB_USERNAME }}/maven-app:latest
